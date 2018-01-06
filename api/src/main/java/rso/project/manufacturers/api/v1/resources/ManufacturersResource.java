@@ -48,7 +48,7 @@ public class ManufacturersResource {
     @POST
     public Response createManufacturer(Manufacturer manufacturer) {
 
-        if (manufacturer.getProductId() == null || manufacturer.getProductId().isEmpty()) {
+        if (manufacturer.getTitle() == null || manufacturer.getTitle().isEmpty()) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         } else {
             manufacturer = manufacturersBean.createManufacturer(manufacturer);

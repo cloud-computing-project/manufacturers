@@ -4,6 +4,7 @@ import org.eclipse.persistence.annotations.UuidGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity(name = "manufacturers")
 @NamedQueries(value =
@@ -19,16 +20,12 @@ public class Manufacturer {
     @GeneratedValue(generator = "idGenerator")
     private String id;
 
-    //private String title;
+    private String title;
 
-    //private String description;
-    //@Column(name = "product_id")
-    private String productId;
+    private String country;
 
-    private Date submitted;
-
-    @Column(name = "customer_id")
-    private String customerId;
+    @Transient
+    private List<Product> products;
 
     public String getId() {
         return id;
@@ -38,43 +35,21 @@ public class Manufacturer {
         this.id = id;
     }
 
-    /*public String getTitle() {
-        return title;
-    }*/
+    public String getTitle(){return title;}
 
-    /*public void setTitle(String title) {
-        this.title = title;
-    }*/
+    public void setTitle(String title) {this.title = title;}
 
-    /*public String getDescription() {
-        return description;
-    }*/
+    public String getCountry(){return country;}
 
-    /*public void setDescription(String description) {
-        this.description = description;
-    }*/
+    public void setCountry(String country){this.country = country;}
 
-    public String getCustomerId() {
-        return customerId;
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
+    public void setOrders(List<Product> products) {
+        this.products = products;
     }
 
-    public String getProductId() {
-        return productId;
-    }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
-
-    public Date getSubmitted() {
-        return submitted;
-    }
-
-    public void setSubmitted(Date submitted) {
-        this.submitted = submitted;
-    }
 }
