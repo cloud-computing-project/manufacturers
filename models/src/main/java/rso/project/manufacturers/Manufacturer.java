@@ -10,8 +10,8 @@ import java.util.List;
 @NamedQueries(value =
         {
                 @NamedQuery(name = "Manufacturer.getAll", query = "SELECT o FROM manufacturers o"),
-                @NamedQuery(name = "Manufacturer.findByCustomer", query = "SELECT o FROM manufacturers o WHERE o.customerId = " +
-                        ":customerId")
+                @NamedQuery(name = "Manufacturer.findByTitle", query = "SELECT o FROM manufacturers o WHERE o.title = " +
+                        ":title")
         })
 @UuidGenerator(name = "idGenerator")
 public class Manufacturer {

@@ -31,7 +31,7 @@ public class Product {
         this.title = title;
     }
 
-    public String getCustomerId() {
+    public String getManufacturerId() {
         return manufacturerId;
     }
 
