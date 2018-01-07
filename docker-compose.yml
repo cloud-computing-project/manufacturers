@@ -3,7 +3,7 @@ services:
   postgres:
     image: postgres:9.6.3
     ports:
-      - 5432:5432
+      - 5435:5435
     environment:
       POSTGRES_USER: dbuser
       POSTGRES_PASSWORD: postgres
@@ -13,6 +13,6 @@ services:
     ports:
       - 8083:8083
     environment:
-      KUMULUZEE_DATASOURCES0_CONNECTIONURL: jdbc:postgresql://postgres:5432/manufacturer
+      KUMULUZEE_DATASOURCES0_CONNECTIONURL: jdbc:postgresql://postgres:5435/manufacturer
     depends_on:
       - postgres
