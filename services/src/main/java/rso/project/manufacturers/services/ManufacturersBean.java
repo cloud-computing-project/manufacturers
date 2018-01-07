@@ -1,19 +1,13 @@
 package rso.project.manufacturers.services;
 
+import com.kumuluz.ee.discovery.annotations.DiscoverService;
+//import com.kumuluz.ee.logs.LogManager;
+//import com.kumuluz.ee.logs.Logger;
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import com.kumuluz.ee.rest.utils.JPAUtils;
 import rso.project.manufacturers.Manufacturer;
-
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.ws.rs.NotFoundException;
-import javax.ws.rs.core.UriInfo;
-import java.util.List;
-import com.kumuluz.ee.discovery.annotations.DiscoverService;
-import com.kumuluz.ee.discovery.annotations.DiscoverService;
-import com.kumuluz.ee.rest.beans.QueryParameters;
-import com.kumuluz.ee.rest.utils.JPAUtils;
+import rso.project.manufacturers.Product;
+import rso.project.manufacturers.services.config.RestProperties;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -30,10 +24,14 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.UriInfo;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RequestScoped
 public class ManufacturersBean {
+
+    //private Logger log = LogManager.getLogger(ManufacturersBean.class.getName());
+
+    @Inject
+    private RestProperties restProperties;
 
     @Inject
     private EntityManager em;
@@ -45,7 +43,7 @@ public class ManufacturersBean {
 
     @Inject
     @DiscoverService("product")
-    private Optional<String> baseUrl;
+    //private Optional<String> baseUrl;
 
 
     @PostConstruct

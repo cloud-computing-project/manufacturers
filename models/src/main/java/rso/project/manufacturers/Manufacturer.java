@@ -3,16 +3,14 @@ package rso.project.manufacturers;
 import org.eclipse.persistence.annotations.UuidGenerator;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
 
-@Entity(name = "manufacturers")
+@Entity(name = "manufacturer")
 @NamedQueries(value =
         {
-                @NamedQuery(name = "Manufacturer.getAll", query = "SELECT o FROM manufacturers o"),
-                @NamedQuery(name = "Manufacturer.findByTitle", query = "SELECT o FROM manufacturers o WHERE o.title = " +
-                        ":title")
+                @NamedQuery(name = "Manufacturer.getAll", query = "SELECT c FROM manufacturer c")
         })
+
 @UuidGenerator(name = "idGenerator")
 public class Manufacturer {
 
