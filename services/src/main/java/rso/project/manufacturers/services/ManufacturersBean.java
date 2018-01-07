@@ -62,6 +62,14 @@ public class ManufacturersBean {
 
     }
 
+    public List<Manufacturer> getManufacturersFilter(UriInfo uriInfo) {
+
+        QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).defaultOffset(0)
+                .build();
+
+        return JPAUtils.queryEntities(em, Manufacturer.class, queryParameters);
+    }
+
     public Manufacturer getManufacturer(String manufacturerId) {
 
         Manufacturer manufacturer = em.find(Manufacturer.class, manufacturerId);
@@ -122,6 +130,24 @@ public class ManufacturersBean {
             return false;
 
         return true;
+    }
+
+    public List<Product> getProducts(String manufacturerId) {
+
+        try {
+            return httpClient
+                    .target(baseUrl + "/v1/orders?where=customerId:EQ:" + manufacturerId)
+                    .request().get(new GenericType<List<Product>>() {
+                    });
+        } catch (WebApplicationException | ProcessingException e) {
+            //log.error(e);
+            throw new InternalServerErrorException(e);
+        }
+
+    }
+
+    public List<Product> getProductsFallback(String manufacturerId) {
+        return new ArrayList<>();
     }
 
     private void beginTx() {
