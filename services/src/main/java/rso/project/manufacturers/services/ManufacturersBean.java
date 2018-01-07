@@ -136,7 +136,7 @@ public class ManufacturersBean {
 
         try {
             return httpClient
-                    .target(baseUrl + "/v1/orders?where=customerId:EQ:" + manufacturerId)
+                    .target(baseUrl + "/v1/products?where=manufacturerId:EQ:" + manufacturerId)
                     .request().get(new GenericType<List<Product>>() {
                     });
         } catch (WebApplicationException | ProcessingException e) {
