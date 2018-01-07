@@ -14,7 +14,7 @@ cache:
   - $HOME/.m2
 
 env:
-  - DOCKER_IMAGE=ejmric/manufacturers:0.03
+  - DOCKER_IMAGE=ejmric/manufacturers:0.04
 
 script:
   - mvn clean package -U
