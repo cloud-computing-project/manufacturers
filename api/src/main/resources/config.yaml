@@ -8,7 +8,7 @@ kumuluzee:
     http:
       port: 8080
   datasources:
-    - jndi-name: jdbc/CustomersDS
+    - jndi-name: jdbc/ManufacturersDS
       connection-url: jdbc:postgresql://192.168.99.100:5432/manufacturer
       username: dbuser
       password: postgres
@@ -21,5 +21,5 @@ kumuluzee:
       hosts: http://192.168.99.100:2379
 rest-properties:
   external-services:
-    product-service:
+    products-service:
       enabled: true

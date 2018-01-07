@@ -44,7 +44,7 @@ public class ManufacturersBean {
     private Client httpClient;
 
     @Inject
-    @DiscoverService("rso-orders")
+    @DiscoverService("products")
     private String baseUrl;
 
     @PostConstruct
