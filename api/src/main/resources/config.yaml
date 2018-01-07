@@ -1,28 +1,25 @@
 kumuluzee:
-  name: rso-manufacturers
+  name: manufacturers
   env:
     name: dev
   version: 1.0.0
   server:
-    base-url: http://localhost:8081
+    base-url: http://localhost:8080
     http:
-      port: 8081
+      port: 8080
   datasources:
-    - jndi-name: jdbc/ManufacturersDS
-      connection-url: jdbc:postgresql://192.168.99.100:5433/manufacturer
+    - jndi-name: jdbc/CustomersDS
+      connection-url: jdbc:postgresql://192.168.99.100:5432/manufacturer
       username: dbuser
       password: postgres
       max-pool-size: 20
+  config:
+    etcd:
+      hosts: http://192.168.99.100:2379
   discovery:
     etcd:
       hosts: http://192.168.99.100:2379
-  health:
-      checks:
-        data-source-health-check:
-          jndi-name: jdbc/ManufacturersDS
-  rest-properties:
-    external-services:
-      product-service:
-        enabled: true
-    healthy: true
-
+rest-properties:
+  external-services:
+    product-service:
+      enabled: true

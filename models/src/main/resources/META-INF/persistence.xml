@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
     <persistence-unit name="manufacturers-jpa" transaction-type="RESOURCE_LOCAL">
-        <non-jta-data-source>jdbc/ManufacturersDS</non-jta-data-source>
+        <non-jta-data-source>jdbc/CustomersDS</non-jta-data-source>
 
-        <class>rso.project.manufacturers.Manufacturer</class>
+        <class>si.fri.rso.samples.manufacturers.models.Manufacturer</class>
 
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
             <property name="javax.persistence.schema-generation.create-source" value="metadata"/>
             <property name="javax.persistence.sql-load-script-source"
-                      value="sql-scripts/init-manufacturers.sql"/>
+                      value="sql-scripts/init-manufacturers.sql" />
             <property name="javax.persistence.schema-generation.drop-source" value="metadata"/>
         </properties>
     </persistence-unit>
