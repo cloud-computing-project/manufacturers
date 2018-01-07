@@ -1,8 +1,8 @@
 package rso.project.manufacturers.services;
 
 import com.kumuluz.ee.discovery.annotations.DiscoverService;
-//import com.kumuluz.ee.logs.LogManager;
-//import com.kumuluz.ee.logs.Logger;
+import com.kumuluz.ee.logs.LogManager;
+import com.kumuluz.ee.logs.Logger;
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import com.kumuluz.ee.rest.utils.JPAUtils;
 import rso.project.manufacturers.Manufacturer;
