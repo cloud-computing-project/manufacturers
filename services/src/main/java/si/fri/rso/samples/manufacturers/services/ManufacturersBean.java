@@ -142,7 +142,7 @@ public class ManufacturersBean {
         if (baseUrl.isPresent()) {
         try {
             return httpClient
-                    .target(baseUrl + "/v1/products?where=manufacturerId:EQ:" + manufacturerId)
+                    .target(baseUrl + "/v1/product?where=manufacturerId:EQ:" + manufacturerId)
                     .request().get(new GenericType<List<Product>>() {
                     });
         } catch (WebApplicationException | ProcessingException e) {
