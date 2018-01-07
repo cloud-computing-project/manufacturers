@@ -44,7 +44,7 @@ public class ManufacturersBean {
     private Client httpClient;
 
     @Inject
-    @DiscoverService("products")
+    @DiscoverService("rso-products")
     private String baseUrl;
 
     @PostConstruct
@@ -139,7 +139,7 @@ public class ManufacturersBean {
 
 
     public List<Product> getProducts(String manufacturerId) {
-
+        log.info("base url orders " + baseUrl);
         try {
             return httpClient
                     .target(baseUrl + "/v1/products?where=manufacturerId:EQ:" + manufacturerId)

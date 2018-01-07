@@ -10,7 +10,7 @@ spec:
         app: manufacturer
     spec:
       containers:
-      - image: ejmric/manufacturers:0.01
+      - image: ejmric/manufacturers:latest
         name: manufacturers
         env:
           - name: KUMULUZEE_DISCOVERY_CLUSTER
@@ -22,8 +22,8 @@ spec:
           - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
             value: jdbc:postgresql://postgres-manufacturers:5432/manufacturer
           - name: KUMULUZEE_SERVER_BASEURL
-            value: http://169.51.20.118:31331
+            value: http://169.51.20.118:31331 
         ports:
-        - containerPort: 8081
+        - containerPort: 8083
           name: server
           protocol: TCP
