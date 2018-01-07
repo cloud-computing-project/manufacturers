@@ -3,7 +3,7 @@
 ## Prerequisites
 
 ```bash
-docker run -d --name manufacturers -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=manufacturer -p 5435:5435 postgres:latest
+docker run -d --name manufacturers -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=manufacturer -p 5432:5432 postgres:latest
 ```
 
 ## Run application in Docker
