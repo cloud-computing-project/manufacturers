@@ -9,7 +9,7 @@ import com.kumuluz.ee.rest.utils.JPAUtils;
 import si.fri.rso.samples.manufacturers.models.Manufacturer;
 import si.fri.rso.samples.manufacturers.models.Product;
 import si.fri.rso.samples.manufacturers.services.config.RestProperties;
-
+import java.util.Optional;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -45,7 +45,7 @@ public class ManufacturersBean {
 
     @Inject
     @DiscoverService("product")
-    private String baseUrl;
+    private Optional<String> baseUrl;
 
     @PostConstruct
     private void init() {
@@ -139,7 +139,7 @@ public class ManufacturersBean {
 
 
     public List<Product> getProducts(String manufacturerId) {
-        log.info("base url orders " + baseUrl);
+        if (baseUrl.isPresent()) {
         try {
             return httpClient
                     .target(baseUrl + "/v1/products?where=manufacturerId:EQ:" + manufacturerId)
@@ -151,6 +151,7 @@ public class ManufacturersBean {
         }
 
     }
+        return new ArrayList<>();}
 
     public List<Product> getProductsFallback(String manufacturerId) {
         return new ArrayList<>();
