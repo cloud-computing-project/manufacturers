@@ -43,7 +43,7 @@ public class ManufacturersBean {
 
     @Inject
     @DiscoverService("product")
-    //private Optional<String> baseUrl;
+    private String baseUrl;
 
 
     @PostConstruct
