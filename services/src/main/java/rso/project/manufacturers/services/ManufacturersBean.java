@@ -10,12 +10,49 @@ import javax.persistence.EntityManager;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
+import com.kumuluz.ee.discovery.annotations.DiscoverService;
+import com.kumuluz.ee.discovery.annotations.DiscoverService;
+import com.kumuluz.ee.rest.beans.QueryParameters;
+import com.kumuluz.ee.rest.utils.JPAUtils;
 
-@ApplicationScoped
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import javax.ws.rs.InternalServerErrorException;
+import javax.ws.rs.NotFoundException;
+import javax.ws.rs.ProcessingException;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.UriInfo;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+@RequestScoped
 public class ManufacturersBean {
 
     @Inject
     private EntityManager em;
+
+    @Inject
+    private ManufacturersBean manufacturersBean;
+
+    private Client httpClient;
+
+    @Inject
+    @DiscoverService("products")
+    private Optional<String> baseUrl;
+
+
+    @PostConstruct
+    private void init() {
+        httpClient = ClientBuilder.newClient();
+        //baseUrl = "http://192.168.99.100:8081"; // only for demonstration
+    }
 
     public List<Manufacturer> getManufacturers(UriInfo uriInfo) {
 
