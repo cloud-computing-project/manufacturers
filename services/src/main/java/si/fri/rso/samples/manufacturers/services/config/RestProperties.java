@@ -9,7 +9,7 @@ import javax.enterprise.context.ApplicationScoped;
 @ConfigBundle("rest-properties")
 public class RestProperties {
 
-    @ConfigValue(value = "external-services.products-service.enabled", watch = true)
+    @ConfigValue(value = "external-services.product-service.enabled", watch = true)
     private boolean productServiceEnabled;
 
     public boolean isProductServiceEnabled() {
