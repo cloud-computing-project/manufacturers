@@ -1,7 +1,7 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: manufacturers-deployment
+  name: manufacturer-deployment
 spec:
   replicas: 1
   template:
@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - image: ejmric/manufacturers:0.04
-        name: manufacturers
+        name: manufacturer
         env:
           - name: KUMULUZEE_DISCOVERY_CLUSTER
             value: bluemix
