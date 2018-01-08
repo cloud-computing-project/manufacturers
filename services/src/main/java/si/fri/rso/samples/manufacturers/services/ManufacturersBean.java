@@ -80,6 +80,7 @@ public class ManufacturersBean {
         log.info("checking service" + restProperties.isProductServiceEnabled());
         if (restProperties.isProductServiceEnabled()) {
             List<Product> products = manufacturersBean.getProducts(manufacturerId);
+            log.info("lista products: " + products);
             manufacturer.setProducts(products);
         }
 
