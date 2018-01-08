@@ -144,7 +144,7 @@ public class ManufacturersBean {
         if (baseUrl.isPresent()) {
         try {
             return httpClient
-                    .target(baseUrl + "/v1/products")
+                    .target(baseUrl.get() + "/v1/products?where=manufacturerId:EQ:" + manufacturerId)
                     .request().get(new GenericType<List<Product>>() {
                     });
         } catch (WebApplicationException | ProcessingException e) {
