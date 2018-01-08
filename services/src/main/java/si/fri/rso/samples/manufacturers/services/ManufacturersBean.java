@@ -74,10 +74,10 @@ public class ManufacturersBean {
 
         Manufacturer manufacturer = em.find(Manufacturer.class, manufacturerId);
 
-        if (manufacturer == null) {
+        if (manufacturer == null){
             throw new NotFoundException();
         }
-
+        log.info("checking service" + restProperties.isProductServiceEnabled());
         if (restProperties.isProductServiceEnabled()) {
             List<Product> products = manufacturersBean.getProducts(manufacturerId);
             manufacturer.setProducts(products);
@@ -142,7 +142,7 @@ public class ManufacturersBean {
         if (baseUrl.isPresent()) {
         try {
             return httpClient
-                    .target(baseUrl + "/v1/product?where=manufacturerId:EQ:" + manufacturerId)
+                    .target(baseUrl + "/v1/products?where=manufacturerId:EQ:" + manufacturerId)
                     .request().get(new GenericType<List<Product>>() {
                     });
         } catch (WebApplicationException | ProcessingException e) {
@@ -151,7 +151,8 @@ public class ManufacturersBean {
         }
 
     }
-        return new ArrayList<>();}
+    return new ArrayList<>();
+    }
 
     public List<Product> getProductsFallback(String manufacturerId) {
         return new ArrayList<>();
