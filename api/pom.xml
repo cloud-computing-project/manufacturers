@@ -26,6 +26,11 @@
             <groupId>si.fri.rso.samples</groupId>
             <artifactId>manufacturers-services</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-metrics-event-stream</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

@@ -25,7 +25,9 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.UriInfo;
 import java.util.ArrayList;
 import java.util.List;
-
+import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
+import org.eclipse.microprofile.faulttolerance.Fallback;
+import org.eclipse.microprofile.faulttolerance.Timeout;
 
 @RequestScoped
 public class ManufacturersBean {
@@ -138,7 +140,9 @@ public class ManufacturersBean {
         return true;
     }
 
-
+    @CircuitBreaker(requestVolumeThreshold = 2)
+    @Fallback(fallbackMethod = "getProductsFallback")
+    @Timeout
     public List<Product> getProducts(String manufacturerId) {
         log.info("baseurl" + baseUrl);
         if (baseUrl.isPresent()) {
@@ -157,7 +161,15 @@ public class ManufacturersBean {
     }
 
     public List<Product> getProductsFallback(String manufacturerId) {
-        return new ArrayList<>();
+        List<Product> products = new ArrayList<>();
+
+        Product product = new Product();
+
+        product.setTitle("N/A");
+
+        products.add(product);
+
+        return products;
     }
 
 

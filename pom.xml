@@ -26,7 +26,8 @@
         <kumuluzee-rest.version>1.1.0</kumuluzee-rest.version>
         <kumuluzee-config.version>1.0.0</kumuluzee-config.version>
         <kumuluzee-discovery.version>1.1.0-SNAPSHOT</kumuluzee-discovery.version>
-
+        <kumuluzee-fault-tolerance.version>1.0.0-SNAPSHOT</kumuluzee-fault-tolerance.version>
+        <hystrix-metrics-event-stream.version>1.5.12</hystrix-metrics-event-stream.version>
         <postgresql.version>42.1.4</postgresql.version>
     </properties>
 
@@ -94,6 +95,16 @@
                 <groupId>si.fri.rso.samples</groupId>
                 <artifactId>manufacturers-services</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kumuluz.ee.fault.tolerance</groupId>
+                <artifactId>kumuluzee-fault-tolerance-hystrix</artifactId>
+                <version>${kumuluzee-fault-tolerance.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.netflix.hystrix</groupId>
+                <artifactId>hystrix-metrics-event-stream</artifactId>
+                <version>${hystrix-metrics-event-stream.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
