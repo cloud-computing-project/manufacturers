@@ -169,6 +169,7 @@ public class ManufacturersBean {
 
         products.add(product);
         log.info("fallback method");
+        System.out.println("Fallback Method.");
         return products;
     }
 

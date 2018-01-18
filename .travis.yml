@@ -14,7 +14,7 @@ cache:
   - $HOME/.m2
 
 env:
-  - DOCKER_IMAGE=ejmric/manufacturers:faultTolerance1
+  - DOCKER_IMAGE=ejmric/manufacturers:faultTolerance2
 
 script:
   - mvn clean package -U
