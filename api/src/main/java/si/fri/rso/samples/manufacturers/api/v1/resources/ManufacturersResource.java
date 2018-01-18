@@ -2,7 +2,9 @@ package si.fri.rso.samples.manufacturers.api.v1.resources;
 
 import com.kumuluz.ee.logs.cdi.Log;
 import si.fri.rso.samples.manufacturers.models.Manufacturer;
+import si.fri.rso.samples.manufacturers.models.Product;
 import si.fri.rso.samples.manufacturers.services.ManufacturersBean;
+import si.fri.rso.samples.manufacturers.services.config.RestProperties;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -26,6 +28,9 @@ public class ManufacturersResource {
 
     @Context
     protected UriInfo uriInfo;
+
+    @Inject
+    private RestProperties restProperties;
 
     @GET
     public Response getManufacturers() {
@@ -54,6 +59,11 @@ public class ManufacturersResource {
 
         if (manufacturer == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        if (restProperties.isProductServiceEnabled()) {
+            List<Product> products = manufacturersBean.getProducts(manufacturerId);
+            manufacturer.setProducts(products);
         }
 
         return Response.status(Response.Status.OK).entity(manufacturer).build();
