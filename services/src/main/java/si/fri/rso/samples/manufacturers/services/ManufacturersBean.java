@@ -8,6 +8,8 @@ import com.kumuluz.ee.rest.utils.JPAUtils;
 import si.fri.rso.samples.manufacturers.models.Manufacturer;
 import si.fri.rso.samples.manufacturers.models.Product;
 import si.fri.rso.samples.manufacturers.services.config.RestProperties;
+
+import java.time.temporal.ChronoUnit;
 import java.util.Optional;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -141,7 +143,7 @@ public class ManufacturersBean {
 
     @CircuitBreaker(requestVolumeThreshold = 2)
     @Fallback(fallbackMethod = "getProductsFallback")
-    @Timeout
+    @Timeout(value=2, unit= ChronoUnit.SECONDS)
     public List<Product> getProducts(String manufacturerId) {
         log.info("baseurl" + baseUrl);
         if (baseUrl.isPresent()) {
