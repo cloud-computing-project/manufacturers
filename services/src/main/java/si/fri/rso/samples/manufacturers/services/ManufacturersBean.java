@@ -1,6 +1,5 @@
 package si.fri.rso.samples.manufacturers.services;
 
-
 import com.kumuluz.ee.discovery.annotations.DiscoverService;
 import com.kumuluz.ee.logs.LogManager;
 import com.kumuluz.ee.logs.Logger;

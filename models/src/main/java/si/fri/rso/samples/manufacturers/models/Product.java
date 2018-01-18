@@ -2,7 +2,7 @@ package si.fri.rso.samples.manufacturers.models;
 
 import java.util.Date;
 
-public class Product {
+public class Product{
 
     private String id;
     private String title;

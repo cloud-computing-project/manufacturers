@@ -7,7 +7,7 @@ import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 @ConfigBundle("rest-properties")
-public class RestProperties {
+public class RestProperties{
 
     @ConfigValue(value = "external-services.product-service.enabled", watch = true)
     private boolean productServiceEnabled;

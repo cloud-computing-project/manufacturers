@@ -12,7 +12,7 @@ import java.util.List;
                 @NamedQuery(name = "Manufacturer.getAll", query = "SELECT c FROM manufacturer c")
         })
 @UuidGenerator(name = "idGenerator")
-public class Manufacturer {
+public class Manufacturer{
 
     @Id
     @GeneratedValue(generator = "idGenerator")
