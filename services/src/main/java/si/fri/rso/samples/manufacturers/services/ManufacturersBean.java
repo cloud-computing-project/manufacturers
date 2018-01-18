@@ -168,7 +168,7 @@ public class ManufacturersBean {
         product.setTitle("N/A");
 
         products.add(product);
-
+        log.info("fallback method");
         return products;
     }
 
