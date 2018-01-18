@@ -24,6 +24,6 @@ spec:
           - name: KUMULUZEE_SERVER_BASEURL
             value: http://169.51.20.118:31331 
         ports:
-        - containerPort: 8082
+        - containerPort: 8086
           name: server
           protocol: TCP
