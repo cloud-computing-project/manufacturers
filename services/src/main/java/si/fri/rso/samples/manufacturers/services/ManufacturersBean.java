@@ -143,7 +143,7 @@ public class ManufacturersBean {
 
     @CircuitBreaker(requestVolumeThreshold = 2)
     @Fallback(fallbackMethod = "getProductsFallback")
-    @Timeout(value=2, unit= ChronoUnit.SECONDS)
+    @Timeout
     public List<Product> getProducts(String manufacturerId) {
         log.info("baseurl" + baseUrl);
         if (baseUrl.isPresent()) {
