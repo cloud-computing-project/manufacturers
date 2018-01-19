@@ -42,6 +42,9 @@ public class Product {
     @Column(name = "category_id")
     private String categoryId;
 
+    @Transient
+    private List<Rating> ratings;
+
     public String getId() {
         return id;
     }
@@ -120,5 +123,14 @@ public class Product {
 
     public void setItemSpecificId(String itemSpecificId) {
         this.itemSpecificId = itemSpecificId;
+    }
+
+
+    public List<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
     }
 }
